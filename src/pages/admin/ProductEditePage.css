@@ -1,0 +1,39 @@
+/* src/pages/admin/ProductEditePage.css */
+.admin-edit-container {
+	padding: 2rem 1rem;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+.edit-card {
+	background: var(--color-white);
+	padding: 1.5rem;
+	border-radius: 8px;
+	box-shadow: var(--shadow-sm);
+}
+
+.edit-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1.25rem;
+}
+
+.image-upload {
+	border: 1px dashed var(--color-border-soft);
+	padding: 1rem;
+	border-radius: 6px;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	align-items: center;
+	justify-content: center;
+}
+
+.preview img { max-width: 100%; border-radius: 6px; }
+
+.meta-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+
+.form-actions { display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 0.75rem; }
+
+@media (min-width: 992px) { .edit-grid { grid-template-columns: 1fr 1fr; } .meta-grid { grid-template-columns: 1fr; } }
+

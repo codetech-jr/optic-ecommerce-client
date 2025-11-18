@@ -1,0 +1,70 @@
+/* src/components/SearchBox.module.css */
+
+/* El contenedor del formulario, que será nuestro componente visual principal */
+.searchForm {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 9999px; /* Bordes totalmente redondeados tipo "píldora" */
+  padding-left: 1rem; /* Espacio para el texto */
+  transition: all 0.2s ease-in-out;
+  max-width: 250px; /* Un ancho máximo para que no se estire demasiado */
+}
+
+/* Cuando cualquier elemento DENTRO del formulario esté enfocado... */
+.searchForm:focus-within {
+  border-color: var(--color-primary);
+  /* Un sutil resplandor para un efecto de foco profesional */
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1); 
+}
+
+/* El campo de texto real, sin estilos propios */
+.searchInput {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 100%;
+  flex-grow: 1; /* Permite que ocupe todo el espacio disponible */
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+  padding: 0; /* Quitamos cualquier padding por defecto */
+}
+
+.searchInput::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 0.8;
+}
+
+/* El botón, que ahora solo contiene el icono */
+.searchButton {
+  background-color: transparent;
+  border: none;
+  border-left: 1px solid var(--color-border-soft); /* Un separador sutil */
+  border-radius: 0 9999px 9999px 0; /* Redondea las esquinas derechas */
+  cursor: pointer;
+  padding: 0.65rem 0.85rem;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.searchForm:focus-within .searchButton {
+  border-left-color: var(--color-primary);
+}
+
+.searchButton:hover {
+  background-color: var(--color-background);
+}
+
+/* El icono de la lupa */
+.searchIcon {
+  color: var(--color-text-secondary);
+}
+
+.searchButton:hover .searchIcon {
+    color: var(--color-primary);
+}

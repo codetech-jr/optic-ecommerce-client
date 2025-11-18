@@ -1,0 +1,82 @@
+/* src/pages/OffersPage.module.css */
+
+.pageHeader {
+  padding: 4rem 1rem;
+  background-color: var(--color-background);
+  text-align: center;
+}
+.pageTitle { font-family: var(--font-heading); font-size: 3rem; color: var(--color-text-primary); margin: 0; }
+.pageSubtitle { font-family: var(--font-sans); font-size: 1.125rem; color: var(--color-text-secondary); max-width: 600px; margin: 0.5rem auto 0; }
+
+/* --- Contenido Principal de la Página --- */
+.mainContent { padding: 4rem 1rem; background-color: var(--color-white); }
+.container { max-width: 1280px; margin: 0 auto; }
+
+/* --- 1. Banner de la Oferta Principal --- */
+.mainOfferBanner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  color: var(--color-white);
+  min-height: 350px;
+  margin-bottom: 4rem;
+}
+.bannerImage { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.bannerOverlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,51,102,0.8) 0%, rgba(0,51,102,0.3) 100%); }
+.bannerContent { position: relative; z-index: 10; padding: 2rem; max-width: 50%; }
+.bannerTitle { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 700; margin: 0 0 1rem 0; }
+.bannerText { font-family: var(--font-sans); margin: 0 0 2rem 0; opacity: 0.9; }
+.bannerButton {
+  font-family: var(--font-heading); font-weight: 600; padding: 0.75rem 2rem; border-radius: 9999px;
+  background-color: var(--color-accent); color: var(--color-white); transition: all 0.2s ease;
+}
+.bannerButton:hover { opacity: 0.9; transform: scale(1.05); }
+
+
+/* --- 2. Grid de Ofertas Secundarias --- */
+.sectionTitle { font-family: var(--font-heading); text-align: center; font-size: 2rem; margin-bottom: 3rem; color: var(--color-text-primary); }
+.secondaryOffersGrid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; }
+.offerCard { 
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  color: var(--color-white);
+  min-height: 250px;
+  /* --- AÑADIMOS ESTAS DOS LÍNEAS CLAVE --- */
+  background-size: cover;      /* Escala la imagen para cubrir el contenedor */
+  background-position: center; /* Centra la imagen vertical y horizontalmente */
+}
+.offerCard h3 { font-family: var(--font-heading); font-size: 1.5rem; margin: 0; }
+.offerCard span { font-family: var(--font-sans); text-decoration: underline; }
+
+/* --- 3. Productos en Oferta --- */
+.productsGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+/* Reutilizamos y adaptamos la tarjeta de producto que diseñamos para la home */
+.productCard { background-color: var(--color-white); border: 1px solid var(--color-border-soft); border-radius: 0.5rem; overflow: hidden; transition: all 0.3s ease; }
+.productCard:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.imageContainer { position: relative; width: 100%; aspect-ratio: 1 / 1; }
+.productImage { width: 100%; height: 100%; object-fit: cover; }
+.saleBadge { position: absolute; top: 0.75rem; left: 0.75rem; background-color: var(--color-accent); color: var(--color-white); font-family: var(--font-heading); font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 9999px; }
+.detailsContainer { padding: 1rem; text-align: left; }
+.brand { font-family: var(--font-sans); font-size: 0.875rem; color: var(--color-text-secondary); text-transform: uppercase; margin-bottom: 0.25rem; }
+.name { font-family: var(--font-heading); font-size: 1rem; font-weight: 600; color: var(--color-text-primary); margin-bottom: 0.75rem; }
+.priceContainer { display: flex; align-items: baseline; gap: 0.5rem; }
+.newPrice { font-family: var(--font-sans); font-size: 1.25rem; font-weight: 600; color: #D9534F; /* Un rojo para destacar el precio de oferta */ }
+.oldPrice { font-family: var(--font-sans); font-size: 1rem; color: var(--color-text-secondary); text-decoration: line-through; }
+
+
+/* --- Media Queries --- */
+@media (min-width: 768px) {
+  .secondaryOffersGrid { grid-template-columns: repeat(2, 1fr); }
+  .productsGrid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .productsGrid { grid-template-columns: repeat(4, 1fr); }
+}

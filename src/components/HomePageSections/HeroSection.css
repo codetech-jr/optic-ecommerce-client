@@ -1,0 +1,15 @@
+/* Personalización de los estilos de Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #ffffff !important; /* Cambia el color de las flechas a blanco */
+}
+
+.swiper-pagination-bullet {
+    background-color: #ffffff !important; /* Cambia el color de los puntos de paginación inactivos */
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #ffffff !important; /* Cambia el color del punto de paginación activo */
+    opacity: 1;
+}

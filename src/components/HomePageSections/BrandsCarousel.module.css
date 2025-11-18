@@ -1,0 +1,64 @@
+/* src/components/HomePageSections/BrandsCarousel.module.css */
+
+.section {
+  padding: 3rem 0;
+  /* Fondo blanco o un gris muy claro, para separar de otras secciones */
+  background-color: var(--color-background);
+  border-top: 1px solid var(--color-border-soft);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem; /* Un poco más pequeño y sutil */
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-text-secondary);
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* El contenedor principal que oculta el desbordamiento */
+.carouselContainer {
+  overflow: hidden;
+  /* Añadimos una máscara de degradado para que los logos se desvanezcan en los bordes */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* La pista que se va a animar. Usamos 'display: flex' */
+.carouselTrack {
+  display: flex;
+  width: max-content; /* El ancho será el de todos sus hijos juntos */
+  animation: scroll 30s linear infinite; /* Aquí está la magia */
+}
+/* Al hacer hover, pausamos la animación */
+.carouselContainer:hover .carouselTrack {
+  animation-play-state: paused;
+}
+
+
+/* La animación que mueve la pista */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Movemos la mitad del ancho total. Hacemos esto porque duplicamos los logos */
+    transform: translateX(-50%);
+  }
+}
+
+/* El logo individual */
+.brandLogo {
+  height: 40px; /* Una altura fija para todos los logos */
+  margin: 0 3rem; /* Espacio entre logos */
+  opacity: 0.6; /* Hacemos los logos un poco transparentes para que se integren mejor */
+  transition: opacity 0.3s ease;
+  filter: grayscale(100%); /* Efecto blanco y negro por defecto */
+}
+.brandLogo:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}

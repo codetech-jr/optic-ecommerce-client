@@ -1,0 +1,296 @@
+/* src/components/Header.module.css */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-md);
+}
+
+/* El contenedor principal con flexbox */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Logo */
+.logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  flex-shrink: 0; /* Evita que el logo se encoja */
+}
+
+.logo span {
+  color: var(--color-accent);
+}
+
+/* --- Navegación Escritorio --- */
+.navDesktop {
+  display: none; /* Oculto en móvil */
+}
+
+.navList {
+  display: flex;
+  align-items: baseline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.navLink {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  transition: color 0.2s ease-in-out;
+}
+
+.navLink:hover {
+  color: var(--color-primary);
+}
+
+/* --- Acciones de Usuario Escritorio --- */
+.userActionsDesktop {
+  display: none; /* Oculto en móvil */
+}
+
+/* ... Estilos para .cartLink, .cartIcon, .badge, etc. se mantienen igual ... */
+.cartLink {
+  position: relative;
+  color: var(--color-text-primary);
+  transition: color 0.2s ease-in-out;
+}
+.cartLink:hover { color: var(--color-primary); }
+.cartIcon { width: 1.5rem; height: 1.5rem; }
+.badge {
+  position: absolute; top: -0.5rem; right: -0.75rem; background-color: var(--color-accent);
+  color: var(--color-white); width: 1.25rem; height: 1.25rem; border-radius: 9999px;
+  display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;
+}
+.profileButton {
+  display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-sans);
+  background: none; border: none; cursor: pointer; color: var(--color-text-primary);
+}
+.profileButton:hover { color: var(--color-primary); }
+.profileIcon { width: 1.5rem; height: 1.5rem; }
+.loginButton {
+  font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600;
+  padding: 0.5rem 1.25rem; border-radius: 9999px; border: 1px solid var(--color-primary);
+  color: var(--color-primary); background-color: var(--color-white); transition: all 0.2s ease-in-out;
+}
+.loginButton:hover { background-color: var(--color-primary); color: var(--color-white); }
+
+/* Estilos del Dropdown del perfil */
+.profileDropdown {
+    position: absolute; right: 0; margin-top: 0.75rem; width: 12rem;
+    background-color: var(--color-white); border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    z-index: 20; padding: 0.5rem 0;
+}
+.dropdownLink { display: block; width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem; text-align: left; color: var(--color-text-primary); }
+.dropdownLink:hover { background-color: var(--color-background); }
+.dropdownButton { display: block; width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem; text-align: left; background: none; border: none; cursor: pointer; color: var(--color-text-primary); }
+.dropdownButton:hover { background-color: var(--color-background); }
+.dropdownDivider { height: 1px; background-color: var(--color-border-soft); margin: 0.5rem 0; }
+
+/* --- SECCIÓN MÓVIL --- */
+.mobileActions {
+  display: flex; /* Visible en móvil */
+  align-items: center;
+  gap: 1rem;
+}
+.mobileMenuButton { background: none; border: none; cursor: pointer; }
+.mobileMenuIcon { width: 2rem; height: 2rem; color: var(--color-text-primary); }
+
+
+.mobilePanelOverlay {
+  position: fixed; inset: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 40;
+  opacity: 0; transition: opacity 0.3s ease-in-out; pointer-events: none;
+}
+.mobilePanelOverlay.isOpen { opacity: 1; pointer-events: auto; }
+
+
+.mobilePanel {
+  position: fixed; top: 0; right: 0; width: 80%; max-width: 320px; height: 100%;
+  background-color: var(--color-white); z-index: 50; font-family: var(--font-sans);
+  transform: translateX(100%); transition: transform 0.3s ease-in-out;
+}
+.mobilePanel.isOpen { transform: translateX(0); }
+.mobilePanelHeader { display: flex; align-items: center; justify-content: space-between; padding: 1rem; border-bottom: 1px solid var(--color-border-soft); }
+.mobilePanelTitle { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--color-primary); }
+.mobilePanelCloseIcon { width: 1.75rem; height: 1.75rem; color: var(--color-text-primary); }
+.mobilePanelBody { padding: 1rem; }
+.mobileNav { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+.mobileNavLink { display: block; padding: 0.5rem 0; font-size: 1.125rem; color: var(--color-text-primary); }
+.mobileNavLink:hover { color: var(--color-primary); }
+.mobileNavDivider { border-top: 1px solid var(--color-border-soft); margin-top: 1rem; padding-top: 1rem; }
+.mobileAdminLinks { padding-left: 1rem; display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;}
+.mobileAdminLink { font-size: 0.875rem; color: var(--color-text-secondary); }
+.mobileLogoutButton { width: 100%; text-align: left; margin-top: 1rem; padding: 0.5rem 0; font-size: 1.125rem; color: var(--color-accent); font-weight: 600; background: none; border: none; cursor: pointer;}
+
+.menuItem {
+  position: relative; /* Clave para posicionar el dropdown */
+}
+
+/* El menú dropdown simple */
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-white);
+  border-radius: 0 0 0.5rem 0.5rem;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  padding: 0.5rem 0;
+  width: 250px; /* Ancho fijo para el dropdown */
+  z-index: 40;
+  
+  /* Animación para aparecer y desaparecer */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.dropdownMenu.isOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownLink {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+}
+
+.dropdownLink:hover {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+}
+
+.dropdownDivider {
+  height: 1px;
+  background-color: var(--color-border-soft);
+  margin: 0.5rem 0;
+}
+
+.dropdownCta {
+  display: block;
+  margin: 0.5rem 1rem;
+  padding: 0.75rem;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  border-radius: 9999px;
+  transition: opacity 0.2s ease;
+}
+
+.dropdownCta:hover {
+  opacity: 0.9;
+}
+
+.offersDropdown {
+  width: 450px; /* Más ancho que el de servicios */
+  padding: 1.5rem;
+}
+
+.offersGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Un grid simple de dos columnas */
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* Los links de la izquierda */
+.offersLinks h4 {
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin: 0 0 1rem 0;
+}
+
+.offersLinks .linksList { /* Reutilizamos la clase .linksList */
+  gap: 0.75rem;
+}
+
+/* La imagen de la derecha */
+.offersImageColumn a {
+  display: block;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.offersImage {
+  width: 100%;
+  display: block; /* Para quitar espacios extra */
+  transition: transform 0.4s ease;
+}
+
+.offersImageColumn a:hover .offersImage {
+  transform: scale(1.05);
+}
+
+/* src/components/layout/Header.module.css - AÑADIR AL FINAL */
+
+/* --- Estilos para el Menú Móvil Jerárquico (Acordeón) --- */
+.mobileNavLink.hasSubMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrowIcon {
+  transition: transform 0.3s ease;
+  color: var(--color-text-secondary);
+}
+.arrowIcon.isOpen {
+  transform: rotate(180deg);
+}
+
+.mobileSubMenu {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease-in-out;
+  padding-left: 1.5rem; /* Indentación para los sub-links */
+}
+.mobileSubMenu.isOpen {
+  max-height: 1000px; /* Un valor grande para que quepa todo */
+}
+
+.mobileSubNavLink {
+  display: block;
+  padding: 0.6rem 0;
+  font-size: 1rem; /* Ligeramente más pequeño que el principal */
+  color: var(--color-text-secondary);
+}
+.mobileSubNavLink:hover {
+  color: var(--color-primary);
+}
+
+/* --- Media Queries (RESPONSIVE) --- */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+  .navDesktop, .userActionsDesktop {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .mobileActions {
+    display: none;
+  }
+}

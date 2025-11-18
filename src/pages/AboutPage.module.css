@@ -1,0 +1,113 @@
+/* src/pages/AboutPage.module.css */
+
+/* --- 1. Hero Section --- */
+.hero {
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-white);
+  background-size: cover;
+  background-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 51, 102, 0.5); /* Overlay con nuestro color primario */
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.heroSubtitle {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+/* --- 2. Story Section (Historia) --- */
+.storySection {
+  padding: 4rem 1rem;
+  background-color: var(--color-white);
+}
+
+.storyGrid {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.storyImage {
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.storyTitle {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.storyText p {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* --- 3. Values Section (Valores) --- */
+.valuesSection {
+  padding: 4rem 1rem;
+  background-color: var(--color-background);
+}
+/* Reutilizaremos muchos estilos del componente SimplifiedProcess */
+/* (Para un proyecto real, podrías crear un componente reutilizable 'FeatureCard') */
+.valuesContainer { max-width: 1280px; margin: 0 auto; text-align: center; }
+.valuesTitle { font-family: var(--font-heading); font-size: 2.25rem; color: var(--color-text-primary); margin-bottom: 4rem; }
+.valuesGrid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+.valueItem { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.valueIcon { width: 3rem; height: 3rem; color: var(--color-accent); margin-bottom: 1.5rem; }
+.valueTitle { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; color: var(--color-text-primary); margin-bottom: 0.5rem; }
+.valueDescription { font-family: var(--font-sans); color: var(--color-text-secondary); line-height: 1.6; max-width: 350px; }
+
+
+/* --- 4. Call to Action (CTA) Section --- */
+.ctaSection {
+  padding: 4rem 1rem;
+  text-align: center;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+.ctaTitle { font-family: var(--font-heading); font-size: 2.25rem; font-weight: 700; margin-bottom: 1rem; }
+.ctaText { font-family: var(--font-sans); max-width: 600px; margin: 0 auto 2rem auto; opacity: 0.9; }
+.ctaButton {
+  font-family: var(--font-heading); font-weight: 600; padding: 0.75rem 2rem; border-radius: 9999px;
+  background-color: var(--color-accent); color: var(--color-white); transition: all 0.2s ease;
+}
+.ctaButton:hover { opacity: 0.9; transform: scale(1.05); }
+
+
+/* --- Media Queries --- */
+@media (min-width: 768px) {
+  .storySection, .valuesSection, .ctaSection { padding: 6rem 1rem; }
+  .storyGrid { grid-template-columns: 1fr 1fr; }
+  .valuesGrid { grid-template-columns: repeat(3, 1fr); }
+}

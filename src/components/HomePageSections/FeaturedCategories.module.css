@@ -1,0 +1,122 @@
+/* src/components/HomePageSections/FeaturedCategories.module.css (Modificado) */
+
+.section {
+  background-color: var(--color-white); /* Lo cambiamos a blanco para un look más premium */
+  padding: 4rem 1rem;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 1.875rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-text-primary);
+  margin-bottom: 3rem;
+}
+
+/* Clave del nuevo diseño: un grid que siempre busca tener 2 columnas en escritorio */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* 1 columna en móvil */
+  gap: 1.5rem; /* gap-6 */
+}
+
+/* Las tarjetas ahora son más grandes, así que ajustamos la altura */
+.segmentCard {
+  position: relative;
+  display: block;
+  height: 20rem; /* h-80, más altas que antes */
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+  /* El contenido se centrará en el extremo inferior */
+  display: flex;
+  align-items: flex-end; /* Alinear contenido abajo */
+  padding: 1.5rem;
+}
+
+.cardImage {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1);
+  transition: transform 0.5s ease-in-out;
+}
+.segmentCard:hover .cardImage {
+  transform: scale(1.05); /* Un zoom más sutil */
+}
+
+/* Usamos un degradado para que el texto sea legible abajo sin oscurecer toda la imagen */
+.cardOverlay {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%);
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+}
+.segmentCard:hover .cardOverlay {
+  opacity: 1;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 10;
+  color: var(--color-white);
+  transition: transform 0.3s ease;
+}
+
+.segmentCard:hover .cardContent {
+    transform: translateY(-5px);
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* Más bold para que destaque */
+  margin-bottom: 0.25rem;
+}
+
+/* CTA "Comprar Ahora" */
+.cardAction {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+
+/* --- Media Queries para Responsive --- */
+
+@media (min-width: 640px) { /* sm breakpoint */
+  .section {
+    padding: 6rem 1rem;
+  }
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+  .title {
+    font-size: 2.25rem;
+  }
+  .grid {
+    /* Aquí la magia: 2 columnas en tablets */
+    grid-template-columns: repeat(2, 1fr);
+    /* Haremos que los dos últimos ocupen todo el ancho si queremos el diseño 2-2,
+       o podemos dejarlo en grid de 4 para un diseño 2x2. Grid de 4 es mejor */
+  }
+  .segmentCard {
+    height: 24rem; /* h-96, más grandes en escritorio */
+  }
+}
+
+/* Si quieres que sean siempre 2 columnas, incluso en pantallas muy grandes */
+@media (min-width: 1024px) { /* lg breakpoint */
+  /*  El grid-template-columns: repeat(2, 1fr) ya se hereda de 'md',
+      pero podrías ajustarlo si quisieras un layout de 4 en línea. 
+      Vamos a mantenerlo 2x2 */
+}

@@ -1,0 +1,92 @@
+.section {
+  padding: 4rem 1rem;
+  background-color: var(--color-background);
+}
+
+.container {
+  max-width: 800px; /* Un contenedor más estrecho para mejor legibilidad */
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 3rem;
+}
+
+/* El contenedor del listado de FAQs */
+.faqList {
+  text-align: left;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.faqItem {
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+/* La pregunta (el 'botón' del acordeón) */
+.faqQuestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.faqIcon {
+  flex-shrink: 0;
+  margin-left: 1rem;
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-primary);
+  transition: transform 0.3s ease;
+}
+.faqIcon.isOpen {
+  transform: rotate(45deg);
+  color: var(--color-accent);
+}
+
+/* El panel de la respuesta (el contenido colapsable) */
+.faqAnswer {
+  overflow: hidden;
+  /* La magia de la animación está en max-height */
+  max-height: 0;
+  transition: max-height 0.4s ease-in-out;
+}
+.faqAnswer.isOpen {
+  /* Un valor suficientemente grande para alojar cualquier contenido */
+  max-height: 500px;
+}
+
+/* El contenido dentro del panel de respuesta */
+.answerContent {
+  font-family: var(--font-sans);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  padding: 0 0 1.5rem 0; /* Espacio inferior */
+}
+
+.answerContent a {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* Botón/Enlace para ver más FAQs */
+.ctaLink {
+  display: inline-block;
+  margin-top: 3rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: underline;
+}

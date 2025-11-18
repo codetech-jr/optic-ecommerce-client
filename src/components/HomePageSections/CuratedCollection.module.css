@@ -1,0 +1,135 @@
+/* src/components/HomePageSections/CuratedCollection.module.css */
+
+.section {
+  background-color: var(--color-background);
+  padding: 4rem 0; /* Menos padding horizontal porque el slider maneja sus márgenes */
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-text-primary);
+  margin-bottom: 3rem; /* mb-12 */
+}
+
+
+/* --- Estilos de la Tarjeta de Producto --- */
+.productCard {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.productCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Para que la imagen sea siempre cuadrada */
+  overflow: hidden;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+  transition: transform 0.4s ease;
+}
+.productCard:hover .productImage {
+  transform: scale(1.05);
+}
+
+.likeButton {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  transition: all 0.2s ease;
+}
+.likeButton:hover {
+  background-color: var(--color-white);
+  color: var(--color-accent);
+  transform: scale(1.1);
+}
+
+.detailsContainer {
+  padding: 1rem;
+  text-align: left;
+}
+
+.brand {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.name {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.ratingContainer {
+  display: flex;
+  gap: 0.25rem;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.price {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+
+/* --- Estilos para Personalizar Swiper --- */
+/* Esta sección es CLAVE para la integración del diseño */
+.swiperContainer :global(.swiper-button-next),
+.swiperContainer :global(.swiper-button-prev) {
+    color: var(--color-primary);
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    box-shadow: var(--shadow-md);
+    transition: background-color 0.2s ease;
+}
+
+.swiperContainer :global(.swiper-button-next:hover),
+.swiperContainer :global(.swiper-button-prev:hover) {
+    background-color: var(--color-white);
+}
+
+.swiperContainer :global(.swiper-button-next::after),
+.swiperContainer :global(.swiper-button-prev::after) {
+    font-size: 1.2rem !important; /* Es importante usar !important a veces para sobreescribir estilos de Swiper */
+    font-weight: 700;
+}

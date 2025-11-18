@@ -1,0 +1,86 @@
+/* src/components/HomePageSections/TrustBar.module.css */
+
+.trustBar {
+  /* Usamos nuestro color de fondo global y bordes suaves */
+  background-color: var(--color-background);
+  border-top: 1px solid var(--color-border-soft);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.title {
+  padding: 1.5rem 1rem 0; /* py-4 + un poco más arriba */
+  font-family: var(--font-heading);
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.container {
+  max-width: 1280px; /* Ancho de un contenedor estándar */
+  margin: 0 auto;
+  padding: 2rem 1rem; /* sm:py-12 -> py-8 */
+}
+
+/* Simula: grid grid-cols-2 gap-8 md:grid-cols-4 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem; /* gap-8 */
+}
+
+/* Simula: flex flex-col items-center ... */
+.featureItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  /* Simula: transition-transform duration-300 ease-in-out hover:-translate-y-2 */
+  transition: transform 0.3s ease-in-out;
+}
+
+.featureItem:hover {
+  transform: translateY(-8px); /* -translate-y-2 */
+}
+
+/* Simula: w-12 h-12 mb-4 text-blue-500 ... */
+.featureIcon {
+  width: 3rem; /* w-12 */
+  height: 3rem; /* h-12 */
+  margin-bottom: 1rem; /* mb-4 */
+  /* Usamos nuestro color primario para consistencia */
+  color: var(--color-primary);
+  /* La transición se aplica aquí para el cambio de color */
+  transition: color 0.3s ease-in-out;
+}
+
+/* Esto simula el efecto 'group-hover:' de Tailwind */
+.featureItem:hover .featureIcon {
+  color: var(--color-accent);
+}
+
+/* Simula: text-sm sm:text-base font-semibold text-gray-700 */
+.featureText {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 600; /* font-semibold */
+  color: var(--color-text-primary);
+}
+
+
+/* --- Media Queries para Responsive --- */
+
+@media (min-width: 640px) { /* sm breakpoint */
+  .container {
+    padding: 3rem 1.5rem; /* sm:py-12 */
+  }
+  .featureText {
+    font-size: 1rem; /* sm:text-base */
+  }
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,0 +1,112 @@
+/* src/components/layout/MegaMenu.module.css */
+
+.megaMenu {
+  position: absolute;
+  top: 100%; /* Se posiciona justo debajo del header */
+  left: 0;
+  width: 100%;
+  background-color: var(--color-white);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-top: 1px solid var(--color-border-soft);
+  
+  /* Animación para aparecer y desaparecer */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  z-index: -1; /* Lo ponemos detrás para que no interfiera cuando está oculto */
+}
+
+/* Clase que se añade para mostrar el menú */
+.megaMenu.isOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  z-index: 40; /* Lo traemos al frente */
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.grid {
+  display: grid;
+  /* Creamos un grid de 5 columnas */
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+}
+
+.columnTitle {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.875rem; /* 14px */
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+  display: inline-block; /* Para que el borde inferior se ajuste */
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 0.5rem;
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.link {
+  font-family: var(--font-sans);
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.link:hover {
+  color: var(--color-primary);
+  padding-left: 5px;
+}
+
+/* Estilos para la imagen destacada */
+.imageColumn a {
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.imageWrapper {
+  position: relative;
+  height: 100%;
+}
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.imageWrapper:hover .image {
+    transform: scale(1.05);
+}
+
+.imageCaption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1rem;
+    color: white;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+}
+
+.imageCaption strong {
+    font-family: var(--font-heading);
+    display: block;
+    font-size: 1.1rem;
+}
+
+.imageCaption span {
+    font-size: 0.9rem;
+}

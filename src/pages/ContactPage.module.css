@@ -1,0 +1,138 @@
+/* src/pages/ContactPage.module.css */
+
+.pageHeader {
+  padding: 4rem 1rem;
+  background-color: var(--color-background);
+  text-align: center;
+}
+
+.pageTitle {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.pageSubtitle {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0.5rem auto 0;
+}
+
+/* --- Contenido Principal de la Página --- */
+.mainContent {
+  padding: 4rem 1rem;
+}
+
+.container {
+  max-width: 1024px; /* Contenedor más estrecho para un formulario cómodo */
+  margin: 0 auto;
+}
+
+/* Grid de dos columnas */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+/* --- Columna Izquierda: Información --- */
+.infoColumnTitle {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.infoIcon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-accent);
+}
+
+.infoText h4 {
+  margin: 0 0 0.25rem 0;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--color-text-primary);
+}
+
+.infoText p {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+.infoText p a { text-decoration: underline; } /* Para que se vean los enlaces */
+
+
+/* --- Columna Derecha: Formulario --- */
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+}
+
+/* Estilo para los inputs de texto y el textarea */
+.input, .textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+.input:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+}
+
+.textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submitButton:hover {
+  background-color: #002244; /* Un tono de azul ligeramente más oscuro */
+}
+
+/* --- Media Queries --- */
+@media (min-width: 768px) {
+  .pageHeader, .mainContent { padding: 6rem 1rem; }
+  .grid {
+    grid-template-columns: 1fr 1.5fr; /* La columna del form es 1.5 veces más ancha */
+  }
+}

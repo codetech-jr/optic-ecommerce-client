@@ -1,0 +1,36 @@
+/* src/pages/LoginPage.css */
+.login-page {
+	min-height: calc(100vh - 6rem);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem 1rem;
+	background-color: var(--color-background);
+}
+
+.auth-card {
+	width: 100%;
+	max-width: 440px;
+	background: var(--color-white);
+	padding: 2rem;
+	border-radius: 8px;
+	box-shadow: var(--shadow-md);
+}
+
+.auth-title {
+	font-family: var(--font-heading);
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	color: var(--color-text-primary);
+}
+
+.auth-form .form-group { margin-bottom: 1rem; }
+.auth-form .form-control { width: 100%; padding: 0.75rem; border-radius: 6px; border: 1px solid var(--color-border-soft); }
+.auth-cta { margin-top: 1rem; }
+.btn-auth { width: 100%; padding: 0.75rem; border-radius: 6px; background-color: var(--color-primary); color: var(--color-white); border: none; font-weight: 700; }
+
+.auth-meta { margin-top: 0.75rem; text-align: center; font-size: 0.9rem; color: var(--color-text-secondary); }
+
+.social-login { display: flex; gap: 0.5rem; margin-top: 1rem; }
+.social-btn { flex: 1; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--color-border-soft); background: var(--color-white); cursor: pointer; }
+

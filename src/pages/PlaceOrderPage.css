@@ -1,0 +1,48 @@
+/* src/pages/PlaceOrderPage.css */
+.place-order-page {
+	padding: 2rem 1rem;
+}
+
+.place-order-container {
+	max-width: 1100px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2rem;
+}
+
+.order-summary {
+	background-color: var(--color-white);
+	padding: 1.5rem;
+	border-radius: 8px;
+	box-shadow: var(--shadow-sm);
+}
+
+.summary-row {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.75rem 0;
+	border-bottom: 1px solid var(--color-border-soft);
+}
+
+.summary-row.total {
+	font-weight: 800;
+	font-size: 1.15rem;
+	border-bottom: none;
+}
+
+.btn-place-order {
+	width: 100%;
+	padding: 0.85rem;
+	background-color: var(--color-primary);
+	color: var(--color-white);
+	border: none;
+	border-radius: 6px;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+@media (min-width: 992px) {
+	.place-order-container { grid-template-columns: 2fr 1fr; }
+}
+

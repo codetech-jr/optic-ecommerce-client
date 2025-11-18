@@ -1,0 +1,5 @@
+.container {
+  max-width: var(--container-max, 1200px); /* Ancho máximo del contenido */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  padding: 1.25rem 1rem; /* Añade un poco de espacio en los lados */
+}

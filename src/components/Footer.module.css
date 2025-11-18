@@ -1,0 +1,105 @@
+/* src/components/layout/Footer.module.css */
+
+.footer {
+  background-color: var(--color-primary); /* Fondo azul oscuro de nuestra marca */
+  color: rgba(255, 255, 255, 0.8); /* Texto blanco semi-transparente */
+  padding: 4rem 1rem 0;
+  font-family: var(--font-sans);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* El grid principal con las 4 columnas de enlaces */
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+  gap: 2rem 1.5rem; /* 32px vertical, 24px horizontal */
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Contenedor de una columna individual */
+.column {
+  /* No necesita estilos específicos gracias al grid, pero lo usamos para la semántica */
+}
+
+/* Título de cada columna (ej. "Comprar") */
+.columnTitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-white);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+/* La lista de enlaces <ul> */
+.linksList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Espacio entre links */
+}
+
+/* Cada enlace individual <a> */
+.link {
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+.link:hover {
+  color: var(--color-white);
+  padding-left: 5px;
+}
+
+/* --- La Barra Inferior (Bottom Bar) --- */
+.bottomBar {
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column; /* Apilado en móvil */
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* El texto de Copyright */
+.copyright {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+/* El contenedor para los iconos de pago */
+.paymentIcons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.paymentIcons svg {
+  height: 24px;
+  width: auto;
+  color: white; /* Relleno blanco para los iconos */
+}
+
+/* --- Media Queries --- */
+
+@media (min-width: 768px) { /* md breakpoint */
+  .linksGrid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en tablet */
+  }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint */
+  .bottomBar {
+    flex-direction: row; /* En línea en escritorio */
+    justify-content: space-between;
+  }
+  .copyright {
+    text-align: left; /* Alineado a la izquierda */
+  }
+}

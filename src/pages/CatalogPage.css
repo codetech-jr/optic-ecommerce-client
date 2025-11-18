@@ -1,0 +1,98 @@
+/* src/pages/CatalogPage.css */
+
+.catalog-layout {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  align-items: flex-start;
+}
+
+.catalog-layout aside {
+  width: 260px;
+  flex: 0 0 260px;
+}
+
+/* Hacemos el sidebar sticky para que el usuario vea filtros mientras navega */
+.catalog-layout aside {
+  position: sticky;
+  top: 6.5rem; /* justo debajo del header */
+  align-self: start;
+}
+
+.catalog-main {
+  flex: 1 1 auto;
+  min-width: 0; /* evita overflow por elementos anchos */
+}
+
+.catalog-main h2 {
+  font-family: var(--font-heading, 'Segoe UI', sans-serif);
+  font-size: 1.75rem;
+  margin: 0 0 1.25rem 0;
+  color: var(--color-text-primary, #16324a);
+}
+
+/* Sidebar (dentro del catálogo) */
+.catalog-layout aside h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-primary);
+}
+.catalog-layout aside ul {
+  margin: 0 0 1.25rem 1rem;
+  padding: 0;
+}
+.catalog-layout aside li {
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-secondary);
+  transition: color 0.15s ease, transform 0.12s ease;
+}
+.catalog-layout aside li:hover {
+  color: var(--color-primary);
+  transform: translateX(3px);
+}
+
+/* Grid de productos: responsive y centrado */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Ajustes visuales para los ProductCard dentro del grid */
+.product-grid > * {
+  display: flex;
+}
+
+/* Si el sidebar no debe mostrarse en pantallas pequeñas */
+@media (max-width: 767px) {
+  .catalog-layout {
+    flex-direction: column;
+    padding: 1.25rem;
+  }
+  .catalog-layout aside {
+    width: 100%;
+    flex: none;
+    order: 2; /* mostrar abajo para priorizar productos */
+    margin-top: 1rem;
+  }
+  .catalog-main { order: 1; }
+}
+
+/* Paginate centrar */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}

@@ -1,0 +1,105 @@
+/* src/components/HomePageSections/SimplifiedProcess.module.css */
+
+.section {
+  background-color: var(--color-white); /* Fondo blanco para una sensación limpia */
+  padding: 4rem 1rem;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center; /* Centramos todo el contenido de la sección */
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.125rem; /* text-lg */
+  color: var(--color-text-secondary);
+  max-width: 42rem; /* 672px */
+  margin: 0 auto 4rem auto; /* mb-16, centrado */
+}
+
+/* Simula: grid grid-cols-1 md:grid-cols-3 gap-8 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Una columna en móvil */
+  gap: 3rem; /* Espacio entre los pasos */
+  text-align: center;
+}
+
+/* Contenedor de cada paso individual */
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* El círculo que rodea al icono */
+.iconContainer {
+  width: 5rem; /* 80px */
+  height: 5rem; /* 80px */
+  background-color: var(--color-background); /* Fondo gris claro */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem; /* mb-6 */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.step:hover .iconContainer {
+    background-color: var(--color-accent);
+    transform: scale(1.1);
+}
+
+/* El icono dentro del círculo */
+.stepIcon {
+  width: 2.5rem; /* 40px */
+  height: 2.5rem; /* 40px */
+  color: var(--color-primary); /* Icono azul por defecto */
+  transition: color 0.3s ease;
+}
+.step:hover .stepIcon {
+    color: var(--color-white); /* Icono blanco al hacer hover */
+}
+
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.stepDescription {
+  font-family: var(--font-sans);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 300px; /* Evita que el texto se estire demasiado en pantallas anchas */
+}
+
+
+/* --- Media Queries para Responsive --- */
+
+@media (min-width: 640px) { /* sm breakpoint */
+  .section {
+    padding: 6rem 1rem;
+  }
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+  .title {
+    font-size: 2.25rem;
+  }
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas en tablet y escritorio */
+  }
+}
